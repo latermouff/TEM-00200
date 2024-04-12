@@ -1,0 +1,1 @@
+cd ~/TEM-00200 && wget https://julialang-s3.julialang.org/bin/linux/x64/1.10/julia-1.10.1-linux-x86_64.tar.gz && tar zxvf julia-1.10.1-linux-x86_64.tar.gz && echo "export PATH=\"\$PATH:~/TEM-00200/julia-1.10.1/bin\"" >> ~/.bashrc && source ~/.bashrc
