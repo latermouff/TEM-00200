@@ -9,10 +9,10 @@
 
 double f(double x)
 {
-    return (x - 2.0) * (x - 2.0);
+    return 4 * sin(x) - exp(x);
 }
 
-double bisection(double (*f)(double), double x0, double x1)
+double regulaFalsi(double (*f)(double), double x0, double x1)
 {
     double f0, f1;
     f0 = f(x0), f1 = f(x1);
@@ -26,8 +26,8 @@ double bisection(double (*f)(double), double x0, double x1)
 #if DEBUG == 1
     printf("%d,%lf,%lf,%lf,%lf,%lf,%lf\n", it, x0, x1, (x0 + x1) / 2.0, f(x0), f(x1), f((x0 + x1) / 2.0));
 #endif
-    double c, fc;
-    while (fabs(x1 - x0) > TOL(x1))
+    double c = (x1 + x0) / 2, fc = 1.0;
+    while (fabs(x1 - x0) > TOL(x1) && fabs(fc) > TOL(0.0))
     {
         double fd = (f1 - f0);
         double fn = (x0 * f1 - x1 * f0);
@@ -57,12 +57,12 @@ double bisection(double (*f)(double), double x0, double x1)
             return c;
         }
     }
-    return (x0 + x1) / 2.0;
+    return c;
 }
 
 int main()
 {
-    double res = bisection(f, 0.0, 1.0);
+    double res = regulaFalsi(f, 0.0, 1.0);
 
     printf("Final Result: %f\n", res);
 

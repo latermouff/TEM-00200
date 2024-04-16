@@ -9,7 +9,7 @@
 
 double f(double x)
 {
-    return (x - 2.0) * (x - 2.0);
+    return (x - 2.0) * (x - 2.0) * (x - 2.0);
 }
 
 double bisection(double (*f)(double), double x0, double x1)
@@ -55,7 +55,7 @@ double bisection(double (*f)(double), double x0, double x1)
 
 int main()
 {
-    double res = bisection(f, 0.0, 1.0);
+    double res = bisection(f, 0.0, 6.0);
 
     printf("Final Result: %f\n", res);
 

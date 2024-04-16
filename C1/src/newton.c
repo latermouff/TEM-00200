@@ -43,7 +43,7 @@ double newton(double (*f)(double), double (*fx)(double), double x, int limit)
 
 int main()
 {
-    double res = secant(f, 0.0, 1.0, 1000);
+    double res = newton(f, fx, 1.0, 1000);
 
     printf("Final Result: %f\n", res);
 
