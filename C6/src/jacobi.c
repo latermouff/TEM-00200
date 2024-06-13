@@ -61,6 +61,7 @@ void jacobi(double *x, double *A, double *b, double *x0, int L)
         aux++;
     } while (difnorm2(x, xold, L) > TOL(1.0));
     printf("Iterations: %d\n",aux);
+    free(xold);
 }
 
 int main()
